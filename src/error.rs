@@ -17,6 +17,7 @@ use core::panic::{RefUnwindSafe, UnwindSafe};
 #[cfg(not(anyhow_no_ptr_addr_of))]
 use core::ptr;
 use core::ptr::NonNull;
+use std::format;
 #[cfg(feature = "wasm_bindgen")]
 use wasm_bindgen::JsValue;
 #[cfg(all(feature = "std", anyhow_no_core_unwind_safe))]
@@ -1216,7 +1217,7 @@ impl AsRef<dyn StdError> for Error {
 #[cfg(feature = "wasm_bindgen")]
 impl Into<JsValue> for Error {
     fn into(self) -> JsValue {
-        JsValue::from_str(self.to_string().as_str())
+        JsValue::from_str(format!("{self}").as_str())
     }
 }
 
