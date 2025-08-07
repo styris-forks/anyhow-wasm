@@ -143,6 +143,12 @@ conversions are defined by is only available in std in those old versions.
 
 <br>
 
+## wasm_bindgen support
+
+To use `anyhow::Error` in functions exported to JavaScript, you need to enable the `wasm_bindgen` feature.
+
+<br>
+
 ## Comparison to failure
 
 The `anyhow::Error` type works something like `failure::Error`, but unlike
